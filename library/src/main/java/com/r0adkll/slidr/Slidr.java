@@ -2,8 +2,10 @@ package com.r0adkll.slidr;
 
 
 import android.app.Activity;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 

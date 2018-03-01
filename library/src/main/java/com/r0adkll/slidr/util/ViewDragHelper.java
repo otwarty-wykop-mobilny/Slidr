@@ -102,6 +102,7 @@ public class ViewDragHelper {
     private View mCapturedView;
     private boolean mReleaseInProgress;
     private final ViewGroup mParentView;
+    private int navSize;
 
     /**
      * A Callback is used as a communication channel with the ViewDragHelper back to the
@@ -344,6 +345,7 @@ public class ViewDragHelper {
         if (cb == null) {
             throw new IllegalArgumentException("Callback may not be null");
         }
+        navSize = Utils.getNavigationBarSize(context);
         mParentView = forParent;
         mCallback = cb;
         final ViewConfiguration vc = ViewConfiguration.get(context);
@@ -1384,7 +1386,8 @@ public class ViewDragHelper {
 
     private int getEdgesTouched(int x, int y) {
         int result = 0;
-        if (x < mParentView.getLeft() + mEdgeSize) result |= EDGE_LEFT;
+
+        if (x - navSize < mParentView.getLeft() + mEdgeSize) result |= EDGE_LEFT;
         if (y < mParentView.getTop() + mEdgeSize) result |= EDGE_TOP;
         if (x > mParentView.getRight() - mEdgeSize) result |= EDGE_RIGHT;
         if (y > mParentView.getBottom() - mEdgeSize) result |= EDGE_BOTTOM;

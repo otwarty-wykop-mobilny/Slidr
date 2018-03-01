@@ -7,11 +7,13 @@ import android.graphics.Paint;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewGroupCompat;
 
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import com.r0adkll.slidr.model.SlidrConfig;
+import com.r0adkll.slidr.util.Utils;
 import com.r0adkll.slidr.util.ViewDragHelper;
 import com.r0adkll.slidr.model.SlidrInterface;
 
@@ -33,6 +35,7 @@ public class SliderPanel extends FrameLayout {
     private boolean isEdgeTouched = false;
     private int edgePosition;
 
+    private int softKeySize;
     private SlidrConfig config;
 
 
@@ -43,6 +46,7 @@ public class SliderPanel extends FrameLayout {
 
     public SliderPanel(Context context, View decorView, SlidrConfig config){
         super(context);
+        this.softKeySize = Utils.getNavigationBarSize(context);
         this.decorView = decorView;
 		this.config = (config == null ? new SlidrConfig.Builder().build() : config);
         init();
@@ -162,7 +166,7 @@ public class SliderPanel extends FrameLayout {
             super.onViewReleased(releasedChild, xvel, yvel);
 
             int left = releasedChild.getLeft();
-            int settleLeft = 0;
+            int settleLeft = softKeySize;
             int leftThreshold = (int) (getWidth() * config.getDistanceThreshold());
             boolean isVerticalSwiping = Math.abs(yvel) > config.getVelocityThreshold();
 
@@ -171,7 +175,7 @@ public class SliderPanel extends FrameLayout {
                 if(Math.abs(xvel) > config.getVelocityThreshold() && !isVerticalSwiping){
                     settleLeft = screenWidth;
                 }else if(left > leftThreshold){
-                    settleLeft = screenWidth;
+                    settleLeft = screenWidth ;
                 }
 
             }else if(xvel == 0){
@@ -201,7 +205,7 @@ public class SliderPanel extends FrameLayout {
             if(listener != null) listener.onStateChanged(state);
             switch (state){
                 case ViewDragHelper.STATE_IDLE:
-                    if(decorView.getLeft() == 0){
+                    if(decorView.getLeft() == softKeySize){
                         // State Open
                         if(listener != null) listener.onOpened();
                     }else{
@@ -584,7 +588,7 @@ public class SliderPanel extends FrameLayout {
             super.onViewReleased(releasedChild, xvel, yvel);
 
             int left = releasedChild.getLeft();
-            int settleLeft = 0;
+            int settleLeft = softKeySize;
             int leftThreshold = (int) (getWidth() * config.getDistanceThreshold());
             boolean isVerticalSwiping = Math.abs(yvel) > config.getVelocityThreshold();
 
@@ -612,7 +616,7 @@ public class SliderPanel extends FrameLayout {
                 }
             }
 
-            dragHelper.settleCapturedViewAt(settleLeft, releasedChild.getTop());
+            dragHelper.settleCapturedViewAt(settleLeft + softKeySize, releasedChild.getTop());
             invalidate();
         }
 
@@ -654,7 +658,6 @@ public class SliderPanel extends FrameLayout {
 
     private void init(){
         setWillNotDraw(false);
-        screenWidth = getResources().getDisplayMetrics().widthPixels;
 
         final float density = getResources().getDisplayMetrics().density;
         final float minVel = MIN_FLING_VELOCITY * density;
@@ -711,6 +714,7 @@ public class SliderPanel extends FrameLayout {
             @Override
             public void run() {
                 screenHeight = getHeight();
+                screenWidth = getWidth();
             }
         });
 
