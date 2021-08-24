@@ -6,5 +6,6 @@ pluginManagement {
         id "com.starter.config" version "0.34.0"
     }
 }
+rootProject.name = "com.github.usefulness"
 
-include ':library'
+include ':slidr'

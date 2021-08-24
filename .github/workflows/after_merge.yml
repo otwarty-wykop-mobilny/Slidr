@@ -36,8 +36,16 @@ jobs:
 
       - run: ./gradlew assembleRelease
 
-      - name: Unit tests
-        run: ./gradlew projectCoverage
+      - run ./gradlew publishReleasePublicationToGithubRepository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+          SIGNING_SECRET_KEY_RING_FILE: ${{ secrets.SIGNING_SECRET_KEY_RING_FILE }}
+
+      - run: ./gradlew projectCoverage
 
       - uses: codecov/codecov-action@v2
         with:
@@ -46,9 +54,8 @@ jobs:
       - uses: actions/cache@v2
         name: Upload base (release)
         with:
-          path: |
-            diffuse-source-file-release
+          path: diffuse-source-file-release
           key: diffuse-${{ github.sha }}-${{ hashFiles('**/aar/**.aar') }}
 
-      - run: cp app/build/outputs/aar/library-release.apk diffuse-source-file-release
+      - run: cp slidr/build/outputs/aar/library-release.apk diffuse-source-file-release
         shell: bash
