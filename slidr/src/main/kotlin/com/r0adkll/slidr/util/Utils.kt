@@ -24,10 +24,6 @@ internal object Utils {
     private fun getAppUsableScreenSize(windowManager: WindowManager) =
         Point().apply(windowManager.defaultDisplay::getSize)
 
-    private fun getRealScreenSize(windowManager: WindowManager): Point {
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getRealSize(size)
-        return size
-    }
+    private fun getRealScreenSize(windowManager: WindowManager) =
+        Point().apply(windowManager.defaultDisplay::getRealSize)
 }
