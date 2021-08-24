@@ -50,5 +50,5 @@ jobs:
             diffuse-source-file-release
           key: diffuse-${{ github.sha }}-${{ hashFiles('**/aar/**.aar') }}
 
-      - run: cp app/build/outputs/apk/release/app-release.apk diffuse-source-file-release
+      - run: cp app/build/outputs/aar/library-release.apk diffuse-source-file-release
         shell: bash
