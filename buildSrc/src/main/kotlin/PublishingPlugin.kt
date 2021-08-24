@@ -80,7 +80,9 @@ class PublishingPlugin : Plugin<Project> {
         }
 
         extensions.configure<SigningExtension>("signing") { signing ->
-            signing.sign(extensions.getByType(PublishingExtension::class.java).publications)
+            if (findConfig("SIGNING_PASSWORD").isNotEmpty()) {
+                signing.sign(extensions.getByType(PublishingExtension::class.java).publications)
+            }
         }
     }
 
