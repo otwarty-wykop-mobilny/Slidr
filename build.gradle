@@ -5,7 +5,7 @@ plugins {
 }
 
 commonConfig {
-    javaFilesAllowed true
+    javaFilesAllowed false
     javaVersion JavaVersion.VERSION_11
 }
 
