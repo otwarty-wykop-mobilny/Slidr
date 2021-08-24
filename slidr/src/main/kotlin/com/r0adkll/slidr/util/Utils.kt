@@ -5,25 +5,21 @@ import android.graphics.Point
 import android.view.Surface
 import android.view.WindowManager
 
-internal object Utils {
+fun Context.getNavigationBarSize(): Int {
+    val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val appUsableSize = getAppUsableScreenSize(windowManager)
+    val realScreenSize = getRealScreenSize(windowManager)
 
-    @JvmStatic
-    fun getNavigationBarSize(context: Context): Int {
-        val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val appUsableSize = getAppUsableScreenSize(windowManager)
-        val realScreenSize = getRealScreenSize(windowManager)
-
-        // navigation bar on the right
-        return if (appUsableSize.x < realScreenSize.x && windowManager.defaultDisplay.rotation == Surface.ROTATION_270) {
-            realScreenSize.x - appUsableSize.x
-        } else {
-            0
-        }
+    // navigation bar on the right
+    return if (appUsableSize.x < realScreenSize.x && windowManager.defaultDisplay.rotation == Surface.ROTATION_270) {
+        realScreenSize.x - appUsableSize.x
+    } else {
+        0
     }
-
-    private fun getAppUsableScreenSize(windowManager: WindowManager) =
-        Point().apply(windowManager.defaultDisplay::getSize)
-
-    private fun getRealScreenSize(windowManager: WindowManager) =
-        Point().apply(windowManager.defaultDisplay::getRealSize)
 }
+
+private fun getAppUsableScreenSize(windowManager: WindowManager) =
+    Point().apply(windowManager.defaultDisplay::getSize)
+
+private fun getRealScreenSize(windowManager: WindowManager) =
+    Point().apply(windowManager.defaultDisplay::getRealSize)
