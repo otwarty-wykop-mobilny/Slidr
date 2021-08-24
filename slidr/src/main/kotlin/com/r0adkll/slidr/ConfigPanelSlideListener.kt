@@ -6,7 +6,7 @@ import com.r0adkll.slidr.model.SlidrConfig
 internal class ConfigPanelSlideListener(
     activity: Activity,
     private val config: SlidrConfig
-) : ColorPanelSlideListener(activity, config.primaryColor, config.secondaryColor) {
+) : ColorPanelSlideListener(activity, config.colorPrimary, config.colorSecondary) {
 
     override fun onStateChanged(state: Int) {
         config.listener?.onSlideStateChanged(state)

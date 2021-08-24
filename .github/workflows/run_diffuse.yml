@@ -48,7 +48,7 @@ jobs:
         uses: usefulness/diffuse-action@master
         with:
           old-file-path: diffuse-source-file-release
-          new-file-path: app/build/outputs/aar/library-release.apk
+          new-file-path: slidr/build/outputs/aar/slidr-release.aar
 
       - uses: peter-evans/find-comment@v1
         id: find_comment
