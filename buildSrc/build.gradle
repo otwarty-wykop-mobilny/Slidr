@@ -1,0 +1,8 @@
+repositories {
+    google()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation("com.project.starter:android:0.34.0")
+}

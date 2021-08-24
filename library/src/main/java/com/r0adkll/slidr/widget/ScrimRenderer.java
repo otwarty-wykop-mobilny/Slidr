@@ -4,8 +4,9 @@ package com.r0adkll.slidr.widget;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.r0adkll.slidr.model.SlidrPosition;
 
@@ -16,13 +17,11 @@ final class ScrimRenderer {
     private final View decorView;
     private final Rect dirtyRect;
 
-
     ScrimRenderer(@NonNull View rootView, @NonNull View decorView) {
         this.rootView = rootView;
         this.decorView = decorView;
         dirtyRect = new Rect();
     }
-
 
     void render(Canvas canvas, SlidrPosition position, Paint paint) {
         switch (position) {
@@ -65,16 +64,14 @@ final class ScrimRenderer {
             case VERTICAL:
                 if (decorView.getTop() > 0) {
                     dirtyRect.set(0, 0, rootView.getMeasuredWidth(), decorView.getTop());
-                }
-                else {
+                } else {
                     dirtyRect.set(0, decorView.getBottom(), rootView.getMeasuredWidth(), rootView.getMeasuredHeight());
                 }
                 break;
             case HORIZONTAL:
                 if (decorView.getLeft() > 0) {
                     dirtyRect.set(0, 0, decorView.getLeft(), rootView.getMeasuredHeight());
-                }
-                else {
+                } else {
                     dirtyRect.set(decorView.getRight(), 0, rootView.getMeasuredWidth(), rootView.getMeasuredHeight());
                 }
                 break;
@@ -106,8 +103,7 @@ final class ScrimRenderer {
     private void renderVertical(Canvas canvas, Paint paint) {
         if (decorView.getTop() > 0) {
             renderTop(canvas, paint);
-        }
-        else {
+        } else {
             renderBottom(canvas, paint);
         }
     }
@@ -116,8 +112,7 @@ final class ScrimRenderer {
     private void renderHorizontal(Canvas canvas, Paint paint) {
         if (decorView.getLeft() > 0) {
             renderLeft(canvas, paint);
-        }
-        else {
+        } else {
             renderRight(canvas, paint);
         }
     }

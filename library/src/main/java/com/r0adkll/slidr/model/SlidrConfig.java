@@ -2,9 +2,11 @@ package com.r0adkll.slidr.model;
 
 
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
-import android.support.annotation.FloatRange;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * This class contains the configuration information for all the options available in
@@ -33,7 +35,7 @@ public class SlidrConfig {
     }
 
 
-    /***********************************************************************************************
+    /* *********************************************************************************************
      *
      * Getters
      *
@@ -43,9 +45,9 @@ public class SlidrConfig {
      * Get the primary color that the slider will interpolate. That is this color is the color
      * of the status bar of the Activity you are returning to
      *
-     * @return      the primary status bar color
+     * @return the primary status bar color
      */
-    public int getPrimaryColor(){
+    public int getPrimaryColor() {
         return colorPrimary;
     }
 
@@ -54,9 +56,9 @@ public class SlidrConfig {
      * Get the secondary color that the slider will interpolatel That is the color of the Activity
      * that you are making slidable
      *
-     * @return      the secondary status bar color
+     * @return the secondary status bar color
      */
-    public int getSecondaryColor(){
+    public int getSecondaryColor() {
         return colorSecondary;
     }
 
@@ -64,10 +66,10 @@ public class SlidrConfig {
     /**
      * Get the color of the background scrim
      *
-     * @return      the scrim color integer
+     * @return the scrim color integer
      */
     @ColorInt
-    public int getScrimColor(){
+    public int getScrimColor() {
         return scrimColor;
     }
 
@@ -75,9 +77,9 @@ public class SlidrConfig {
     /**
      * Get teh start alpha value for when the activity is not swiped at all
      *
-     * @return      the start alpha value (0.0 to 1.0)
+     * @return the start alpha value (0.0 to 1.0)
      */
-    public float getScrimStartAlpha(){
+    public float getScrimStartAlpha() {
         return scrimStartAlpha;
     }
 
@@ -85,9 +87,9 @@ public class SlidrConfig {
     /**
      * Get the end alpha value for when the user almost swipes the activity off the screen
      *
-     * @return      the end alpha value (0.0 to 1.0)
+     * @return the end alpha value (0.0 to 1.0)
      */
-    public float getScrimEndAlpha(){
+    public float getScrimEndAlpha() {
         return scrimEndAlpha;
     }
 
@@ -96,9 +98,10 @@ public class SlidrConfig {
      * Get the position of the slidable mechanism for this configuration. This is the position on
      * the screen that the user can swipe the activity away from
      *
-     * @return      the slider position
+     * @return the slider position
      */
-    public SlidrPosition getPosition(){
+    @NonNull
+    public SlidrPosition getPosition() {
         return position;
     }
 
@@ -107,9 +110,9 @@ public class SlidrConfig {
      * Get the touch 'width' to be used in the gesture detection. This value should incorporate with
      * the device's touch slop
      *
-     * @return      the touch area size
+     * @return the touch area size
      */
-    public float getTouchSize(){
+    public float getTouchSize() {
         return touchSize;
     }
 
@@ -118,9 +121,9 @@ public class SlidrConfig {
      * Get the velocity threshold at which the slide action is completed regardless of offset
      * distance of the drag
      *
-     * @return      the velocity threshold
+     * @return the velocity threshold
      */
-    public float getVelocityThreshold(){
+    public float getVelocityThreshold() {
         return velocityThreshold;
     }
 
@@ -129,20 +132,20 @@ public class SlidrConfig {
      * Get at what % of the screen is the minimum viable distance the activity has to be dragged
      * in-order to be slinged off the screen
      *
-     * @return      the distant threshold as a percentage of the screen size (width or height)
+     * @return the distant threshold as a percentage of the screen size (width or height)
      */
-    public float getDistanceThreshold(){
+    public float getDistanceThreshold() {
         return distanceThreshold;
     }
 
 
     /**
-     * Get the touch sensitivity set in the {@link android.support.v4.widget.ViewDragHelper} when
+     * Get the touch sensitivity set in the {@link androidx.customview.widget.ViewDragHelper} when
      * creating it.
      *
-     * @return      the touch sensitivity
+     * @return the touch sensitivity
      */
-    public float getSensitivity(){
+    public float getSensitivity() {
         return sensitivity;
     }
 
@@ -151,9 +154,10 @@ public class SlidrConfig {
      * Get the slidr listener set by the user to respond to certain events in the sliding
      * mechanism.
      *
-     * @return      the slidr listener
+     * @return the slidr listener
      */
-    public SlidrListener getListener(){
+    @Nullable
+    public SlidrListener getListener() {
         return listener;
     }
 
@@ -161,7 +165,7 @@ public class SlidrConfig {
     /**
      * Has the user configured slidr to only catch at the edge of the screen ?
      *
-     * @return      true if is edge capture only
+     * @return true if is edge capture only
      */
     public boolean isEdgeOnly() {
         return edgeOnly;
@@ -171,8 +175,8 @@ public class SlidrConfig {
     /**
      * Get the size of the edge field that is catchable
      *
+     * @return the size of the edge that is grabable
      * @see #isEdgeOnly()
-     * @return      the size of the edge that is grabable
      */
     public float getEdgeSize(float size) {
         return edgeSize * size;
@@ -235,83 +239,95 @@ public class SlidrConfig {
      * The Builder for this configuration class. This is the only way to create a
      * configuration
      */
-    public static class Builder{
+    public static class Builder {
 
         private SlidrConfig config;
 
-        public Builder(){
+        public Builder() {
             config = new SlidrConfig();
         }
 
-        public Builder primaryColor(@ColorInt int color){
+        @NonNull
+        public Builder primaryColor(@ColorInt int color) {
             config.colorPrimary = color;
             return this;
         }
 
-        public Builder secondaryColor(@ColorInt int color){
+        @NonNull
+        public Builder secondaryColor(@ColorInt int color) {
             config.colorSecondary = color;
             return this;
         }
 
-        public Builder position(SlidrPosition position){
+        @NonNull
+        public Builder position(@NonNull SlidrPosition position) {
             config.position = position;
             return this;
         }
 
-        public Builder touchSize(float size){
+        @NonNull
+        public Builder touchSize(float size) {
             config.touchSize = size;
             return this;
         }
 
-        public Builder sensitivity(float sensitivity){
+        @NonNull
+        public Builder sensitivity(float sensitivity) {
             config.sensitivity = sensitivity;
             return this;
         }
 
-        public Builder scrimColor(@ColorInt int color){
+        @NonNull
+        public Builder scrimColor(@ColorInt int color) {
             config.scrimColor = color;
             return this;
         }
 
-        public Builder scrimStartAlpha(@FloatRange(from = 0.0, to = 1.0) float alpha){
+        @NonNull
+        public Builder scrimStartAlpha(@FloatRange(from = 0.0, to = 1.0) float alpha) {
             config.scrimStartAlpha = alpha;
             return this;
         }
 
-        public Builder scrimEndAlpha(@FloatRange(from = 0.0, to = 1.0) float alpha){
+        @NonNull
+        public Builder scrimEndAlpha(@FloatRange(from = 0.0, to = 1.0) float alpha) {
             config.scrimEndAlpha = alpha;
             return this;
         }
 
-        public Builder velocityThreshold(float threshold){
+        @NonNull
+        public Builder velocityThreshold(float threshold) {
             config.velocityThreshold = threshold;
             return this;
         }
 
-        public Builder distanceThreshold(@FloatRange(from = .1f, to = .9f) float threshold){
+        @NonNull
+        public Builder distanceThreshold(@FloatRange(from = .1f, to = .9f) float threshold) {
             config.distanceThreshold = threshold;
             return this;
         }
 
-        public Builder edge(boolean flag){
+        @NonNull
+        public Builder edge(boolean flag) {
             config.edgeOnly = flag;
             return this;
         }
 
-        public Builder edgeSize(@FloatRange(from = 0f, to = 1f) float edgeSize){
+        @NonNull
+        public Builder edgeSize(@FloatRange(from = 0f, to = 1f) float edgeSize) {
             config.edgeSize = edgeSize;
             return this;
         }
 
-        public Builder listener(SlidrListener listener){
+        @NonNull
+        public Builder listener(@Nullable SlidrListener listener) {
             config.listener = listener;
             return this;
         }
 
-        public SlidrConfig build(){
+        @NonNull
+        public SlidrConfig build() {
             return config;
         }
-
     }
-
 }

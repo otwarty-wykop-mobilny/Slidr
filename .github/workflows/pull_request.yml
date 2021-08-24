@@ -1,0 +1,58 @@
+name: Build project
+
+on:
+  pull_request:
+
+jobs:
+  cancel-previous-workflows:
+    name: Cancel previous workflow runs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 11
+
+      - name: Cache .gradle
+        uses: burrunan/gradle-cache-action@v1
+        with:
+          job-id: default-jdk11
+          gradle-distribution-sha-256-sum-warning: false
+
+      - name: Gradle Wrapper Validation
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Code style check
+        run: ./gradlew projectCodestyle -x checkstyle
+
+      - name: Assemble
+        run: ./gradlew assemble
+
+      - name: Unit tests
+        run: ./gradlew projectCoverage
+
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Android Lint
+        run: ./gradlew projectLint
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: lint-results
+          path: '${{ github.workspace }}/**/build/**/reports/lint-results-*.html'
