@@ -26,7 +26,7 @@ public class SlidrConfig {
     private boolean edgeOnly = false;
     private float edgeSize = 0.18f;
 
-    private SlidrPosition position = SlidrPosition.LEFT;
+    private SlidrPosition position = SlidrPosition.Left;
     private SlidrListener listener;
 
 

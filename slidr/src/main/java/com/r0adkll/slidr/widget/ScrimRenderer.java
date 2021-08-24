@@ -25,22 +25,22 @@ final class ScrimRenderer {
 
     void render(Canvas canvas, SlidrPosition position, Paint paint) {
         switch (position) {
-            case LEFT:
+            case Left:
                 renderLeft(canvas, paint);
                 break;
-            case RIGHT:
+            case Right:
                 renderRight(canvas, paint);
                 break;
-            case TOP:
+            case Top:
                 renderTop(canvas, paint);
                 break;
-            case BOTTOM:
+            case Bottom:
                 renderBottom(canvas, paint);
                 break;
-            case VERTICAL:
+            case Vertical:
                 renderVertical(canvas, paint);
                 break;
-            case HORIZONTAL:
+            case Horizontal:
                 renderHorizontal(canvas, paint);
                 break;
         }
@@ -49,26 +49,26 @@ final class ScrimRenderer {
 
     Rect getDirtyRect(SlidrPosition position) {
         switch (position) {
-            case LEFT:
+            case Left:
                 dirtyRect.set(0, 0, decorView.getLeft(), rootView.getMeasuredHeight());
                 break;
-            case RIGHT:
+            case Right:
                 dirtyRect.set(decorView.getRight(), 0, rootView.getMeasuredWidth(), rootView.getMeasuredHeight());
                 break;
-            case TOP:
+            case Top:
                 dirtyRect.set(0, 0, rootView.getMeasuredWidth(), decorView.getTop());
                 break;
-            case BOTTOM:
+            case Bottom:
                 dirtyRect.set(0, decorView.getBottom(), rootView.getMeasuredWidth(), rootView.getMeasuredHeight());
                 break;
-            case VERTICAL:
+            case Vertical:
                 if (decorView.getTop() > 0) {
                     dirtyRect.set(0, 0, rootView.getMeasuredWidth(), decorView.getTop());
                 } else {
                     dirtyRect.set(0, decorView.getBottom(), rootView.getMeasuredWidth(), rootView.getMeasuredHeight());
                 }
                 break;
-            case HORIZONTAL:
+            case Horizontal:
                 if (decorView.getLeft() > 0) {
                     dirtyRect.set(0, 0, decorView.getLeft(), rootView.getMeasuredHeight());
                 } else {
