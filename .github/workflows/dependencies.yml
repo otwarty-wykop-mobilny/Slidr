@@ -36,7 +36,7 @@ jobs:
         name: Generate dependency diff
         uses: usefulness/dependency-tree-diff-action@v1
         with:
-          project: 'library'
+          project: 'slidr'
           configuration: debugRuntimeClasspath
 
       - uses: peter-evans/find-comment@v1
