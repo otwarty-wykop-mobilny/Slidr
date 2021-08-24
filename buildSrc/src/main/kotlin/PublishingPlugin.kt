@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION") // https://issuetracker.google.com/issues/170650362
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.api.AndroidSourceDirectorySet
 import org.gradle.api.Plugin
@@ -18,7 +19,6 @@ class PublishingPlugin : Plugin<Project> {
             jar.archiveClassifier.set("sources")
             val android = extensions.findByName("android") as BaseExtension
             jar.from(android.sourceSets.getByName("main").java.srcDirs)
-            @Suppress("DEPRECATION") // https://issuetracker.google.com/issues/170650362
             jar.from((android.sourceSets.getByName("main").kotlin as AndroidSourceDirectorySet).srcDirs)
         }
         extensions.configure<PublishingExtension> {
