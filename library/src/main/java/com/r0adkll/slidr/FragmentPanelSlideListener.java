@@ -1,9 +1,10 @@
 package com.r0adkll.slidr;
 
 
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.widget.SliderPanel;
@@ -14,12 +15,10 @@ class FragmentPanelSlideListener implements SliderPanel.OnPanelSlideListener {
     private final View view;
     private final SlidrConfig config;
 
-
     FragmentPanelSlideListener(@NonNull View view, @NonNull SlidrConfig config) {
         this.view = view;
         this.config = config;
     }
-
 
     @Override
     public void onStateChanged(int state) {

@@ -1,0 +1,31 @@
+name: Google Play Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    env:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: 11
+
+      - name: Cache .gradle
+        uses: burrunan/gradle-cache-action@v1
+        with:
+          job-id: jdk11
+          gradle-distribution-sha-256-sum-warning: false
+
+      - name: Assemble
+        run: ./gradlew assembleRelease

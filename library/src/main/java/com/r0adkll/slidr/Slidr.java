@@ -2,12 +2,11 @@ package com.r0adkll.slidr;
 
 
 import android.app.Activity;
-import android.os.Build;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.model.SlidrInterface;
@@ -106,7 +105,7 @@ public final class Slidr {
      * Attach a slider mechanism to a fragment view replacing an internal view
      *
      * @param oldScreen the view within a fragment to replace
-     * @param config the slider configuration to attach with
+     * @param config    the slider configuration to attach with
      * @return a {@link com.r0adkll.slidr.model.SlidrInterface} that allows
      * the user to lock/unlock the sliding mechanism for whatever purpose.
      */
