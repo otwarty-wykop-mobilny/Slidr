@@ -63,5 +63,5 @@ jobs:
           path: diffuse-source-file-release
           key: diffuse-${{ github.sha }}-${{ hashFiles('**/aar/**.aar') }}
 
-      - run: cp slidr/build/outputs/aar/slidr-release.apk diffuse-source-file-release
+      - run: cp slidr/build/outputs/aar/slidr-release.aar diffuse-source-file-release
         shell: bash

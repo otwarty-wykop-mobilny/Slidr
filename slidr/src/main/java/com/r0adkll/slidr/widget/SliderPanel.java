@@ -663,27 +663,27 @@ public class SliderPanel extends FrameLayout {
 
         ViewDragHelper.Callback callback;
         switch (config.getPosition()) {
-            case LEFT:
+            case Left:
                 callback = leftCallback;
                 edgePosition = ViewDragHelper.EDGE_LEFT;
                 break;
-            case RIGHT:
+            case Right:
                 callback = rightCallback;
                 edgePosition = ViewDragHelper.EDGE_RIGHT;
                 break;
-            case TOP:
+            case Top:
                 callback = topCallback;
                 edgePosition = ViewDragHelper.EDGE_TOP;
                 break;
-            case BOTTOM:
+            case Bottom:
                 callback = bottomCallback;
                 edgePosition = ViewDragHelper.EDGE_BOTTOM;
                 break;
-            case VERTICAL:
+            case Vertical:
                 callback = verticalCallback;
                 edgePosition = ViewDragHelper.EDGE_TOP | ViewDragHelper.EDGE_BOTTOM;
                 break;
-            case HORIZONTAL:
+            case Horizontal:
                 callback = horizontalCallback;
                 edgePosition = ViewDragHelper.EDGE_LEFT | ViewDragHelper.EDGE_RIGHT;
                 break;
@@ -734,17 +734,17 @@ public class SliderPanel extends FrameLayout {
         float y = ev.getY();
 
         switch (config.getPosition()) {
-            case LEFT:
+            case Left:
                 return x < config.getEdgeSize(getWidth());
-            case RIGHT:
+            case Right:
                 return x > getWidth() - config.getEdgeSize(getWidth());
-            case BOTTOM:
+            case Bottom:
                 return y > getHeight() - config.getEdgeSize(getHeight());
-            case TOP:
+            case Top:
                 return y < config.getEdgeSize(getHeight());
-            case HORIZONTAL:
+            case Horizontal:
                 return x < config.getEdgeSize(getWidth()) || x > getWidth() - config.getEdgeSize(getWidth());
-            case VERTICAL:
+            case Vertical:
                 return y < config.getEdgeSize(getHeight()) || y > getHeight() - config.getEdgeSize(getHeight());
         }
         return false;
