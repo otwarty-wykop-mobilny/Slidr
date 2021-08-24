@@ -12,7 +12,7 @@ import androidx.customview.widget.ViewDragHelper
 import com.r0adkll.slidr.model.SlidrConfig
 import com.r0adkll.slidr.model.SlidrInterface
 import com.r0adkll.slidr.model.SlidrPosition
-import com.r0adkll.slidr.util.Utils.getNavigationBarSize
+import com.r0adkll.slidr.util.getNavigationBarSize
 import kotlin.math.abs
 
 internal class SliderPanel(
@@ -32,7 +32,7 @@ internal class SliderPanel(
     private var isLocked = false
     private var isEdgeTouched = false
     private var edgePosition = 0
-    private val softKeySize = getNavigationBarSize(context)
+    private val softKeySize = context.getNavigationBarSize()
 
     /**
      * The drag helper callback interface for the Left position
