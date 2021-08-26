@@ -21,7 +21,11 @@ fun View.replaceSlidr(config: SlidrConfig): SlidrInterface {
     parent.removeView(this)
 
     // Setup the slider panel and attach it
-    val panel = SliderPanel(context, this, config)
+    val panel = SliderPanel(
+        context = context,
+        decorView = this,
+        config = config,
+    )
     panel.id = R.id.slidable_panel
     this.id = R.id.slidable_content
     panel.addView(this)
@@ -54,7 +58,7 @@ fun Activity.attachSlidr(config: SlidrConfig = SlidrConfig()): SlidrInterface {
     oldScreen.id = R.id.slidable_content
     panel.addView(oldScreen)
     decorView.addView(panel, 0)
-
+    config.colorSecondary?.let { window.statusBarColor = it }
     panel.setOnPanelSlideListener(ConfigPanelSlideListener(this, config))
 
     return panel.defaultInterface
