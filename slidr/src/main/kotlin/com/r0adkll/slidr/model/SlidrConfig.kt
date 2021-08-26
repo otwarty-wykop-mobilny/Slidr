@@ -4,8 +4,8 @@ import android.graphics.Color
 import androidx.annotation.ColorInt
 
 data class SlidrConfig(
-    val colorPrimary: Int = -1,
-    val colorSecondary: Int = -1,
+    @ColorInt val colorPrimary: Int? = null,
+    @ColorInt val colorSecondary: Int? = null,
     val touchSize: Float = -1f,
     val sensitivity: Float = 1f,
     @ColorInt val scrimColor: Int = Color.BLACK,
@@ -16,7 +16,7 @@ data class SlidrConfig(
     val edgeOnly: Boolean = false,
     private val edgeSize: Float = 0.18f,
     val position: SlidrPosition = SlidrPosition.Left,
-    val listener: SlidrListener? = null,
+    val listener: SlidrListener = slidrListener(),
 ) {
 
     fun getEdgeSize(size: Float): Float = edgeSize * size

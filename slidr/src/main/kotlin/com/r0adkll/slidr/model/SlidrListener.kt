@@ -27,10 +27,10 @@ interface SlidrListener {
 }
 
 fun slidrListener(
-    onSlideStateChanged: (Int) -> Unit,
-    onSlideChange: (Float) -> Unit,
-    onSlideOpened: () -> Unit,
-    onSlideClosed: () -> Unit,
+    onSlideStateChanged: (Int) -> Unit = {},
+    onSlideChange: (Float) -> Unit = {},
+    onSlideOpened: () -> Unit = {},
+    onSlideClosed: () -> Unit = {},
 ): SlidrListener = object : SlidrListener {
 
     override fun onSlideStateChanged(state: Int) = onSlideStateChanged(state)
