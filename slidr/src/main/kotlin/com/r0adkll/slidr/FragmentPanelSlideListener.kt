@@ -11,11 +11,11 @@ internal class FragmentPanelSlideListener(
 ) : OnPanelSlideListener {
 
     override fun onStateChanged(state: Int) {
-        config.listener?.onSlideStateChanged(state)
+        config.listener.onSlideStateChanged(state)
     }
 
     override fun onClosed() {
-        config.listener?.onSlideClosed()
+        config.listener.onSlideClosed()
 
         // Ensure that we are attached to a FragmentActivity
         val activity = view.context as? FragmentActivity ?: return
@@ -28,14 +28,10 @@ internal class FragmentPanelSlideListener(
     }
 
     override fun onOpened() {
-        if (config.listener != null) {
-            config.listener.onSlideOpened()
-        }
+        config.listener.onSlideOpened()
     }
 
     override fun onSlideChange(percent: Float) {
-        if (config.listener != null) {
-            config.listener.onSlideChange(percent)
-        }
+        config.listener.onSlideChange(percent)
     }
 }

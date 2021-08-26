@@ -10,9 +10,6 @@ android {
         minSdk 23
         targetSdk 30
     }
-    lintOptions {
-        disable("UnknownNullness")
-    }
 }
 
 dependencies {
