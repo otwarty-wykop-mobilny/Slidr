@@ -81,7 +81,7 @@ internal class SliderPanel(
         ) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - left.toFloat() / screenWidth.toFloat()
-            if (listener != null) listener!!.onSlideChange(percent)
+            listener?.onSlideChange(percent)
 
             // Update the dimmer alpha
             applyScrim(percent)
@@ -89,14 +89,14 @@ internal class SliderPanel(
 
         override fun onViewDragStateChanged(state: Int) {
             super.onViewDragStateChanged(state)
-            if (listener != null) listener!!.onStateChanged(state)
+            listener?.onStateChanged(state)
             when (state) {
                 ViewDragHelper.STATE_IDLE -> if (decorView.left == softKeySize) {
                     // State Open
-                    if (listener != null) listener!!.onOpened()
+                    listener?.onOpened()
                 } else {
                     // State Closed
-                    if (listener != null) listener!!.onClosed()
+                    listener?.onClosed()
                 }
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
@@ -154,7 +154,7 @@ internal class SliderPanel(
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(left)
                 .toFloat() / screenWidth.toFloat()
-            if (listener != null) listener!!.onSlideChange(percent)
+            listener?.onSlideChange(percent)
 
             // Update the dimmer alpha
             applyScrim(percent)
@@ -162,14 +162,14 @@ internal class SliderPanel(
 
         override fun onViewDragStateChanged(state: Int) {
             super.onViewDragStateChanged(state)
-            if (listener != null) listener!!.onStateChanged(state)
+            listener?.onStateChanged(state)
             when (state) {
                 ViewDragHelper.STATE_IDLE -> if (decorView.left == 0) {
                     // State Open
-                    if (listener != null) listener!!.onOpened()
+                    listener?.onOpened()
                 } else {
                     // State Closed
-                    if (listener != null) listener!!.onClosed()
+                    listener?.onClosed()
                 }
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
@@ -226,7 +226,7 @@ internal class SliderPanel(
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(top)
                 .toFloat() / screenHeight.toFloat()
-            if (listener != null) listener!!.onSlideChange(percent)
+            listener?.onSlideChange(percent)
 
             // Update the dimmer alpha
             applyScrim(percent)
@@ -234,14 +234,14 @@ internal class SliderPanel(
 
         override fun onViewDragStateChanged(state: Int) {
             super.onViewDragStateChanged(state)
-            if (listener != null) listener!!.onStateChanged(state)
+            listener?.onStateChanged(state)
             when (state) {
                 ViewDragHelper.STATE_IDLE -> if (decorView.top == 0) {
                     // State Open
-                    if (listener != null) listener!!.onOpened()
+                    listener?.onOpened()
                 } else {
                     // State Closed
-                    if (listener != null) listener!!.onClosed()
+                    listener?.onClosed()
                 }
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
@@ -298,7 +298,7 @@ internal class SliderPanel(
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(top)
                 .toFloat() / screenHeight.toFloat()
-            if (listener != null) listener!!.onSlideChange(percent)
+            listener?.onSlideChange(percent)
 
             // Update the dimmer alpha
             applyScrim(percent)
@@ -306,14 +306,14 @@ internal class SliderPanel(
 
         override fun onViewDragStateChanged(state: Int) {
             super.onViewDragStateChanged(state)
-            if (listener != null) listener!!.onStateChanged(state)
+            listener?.onStateChanged(state)
             when (state) {
                 ViewDragHelper.STATE_IDLE -> if (decorView.top == 0) {
                     // State Open
-                    if (listener != null) listener!!.onOpened()
+                    listener?.onOpened()
                 } else {
                     // State Closed
-                    if (listener != null) listener!!.onClosed()
+                    listener?.onClosed()
                 }
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
@@ -380,7 +380,7 @@ internal class SliderPanel(
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(top)
                 .toFloat() / screenHeight.toFloat()
-            if (listener != null) listener!!.onSlideChange(percent)
+            listener?.onSlideChange(percent)
 
             // Update the dimmer alpha
             applyScrim(percent)
@@ -388,14 +388,14 @@ internal class SliderPanel(
 
         override fun onViewDragStateChanged(state: Int) {
             super.onViewDragStateChanged(state)
-            if (listener != null) listener!!.onStateChanged(state)
+            listener?.onStateChanged(state)
             when (state) {
                 ViewDragHelper.STATE_IDLE -> if (decorView.top == 0) {
                     // State Open
-                    if (listener != null) listener!!.onOpened()
+                    listener?.onOpened()
                 } else {
                     // State Closed
-                    if (listener != null) listener!!.onClosed()
+                    listener?.onClosed()
                 }
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
@@ -461,7 +461,7 @@ internal class SliderPanel(
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(left)
                 .toFloat() / screenWidth.toFloat()
-            if (listener != null) listener!!.onSlideChange(percent)
+            listener?.onSlideChange(percent)
 
             // Update the dimmer alpha
             applyScrim(percent)
@@ -469,14 +469,14 @@ internal class SliderPanel(
 
         override fun onViewDragStateChanged(state: Int) {
             super.onViewDragStateChanged(state)
-            if (listener != null) listener!!.onStateChanged(state)
+            listener?.onStateChanged(state)
             when (state) {
                 ViewDragHelper.STATE_IDLE -> if (decorView.left == 0) {
                     // State Open
-                    if (listener != null) listener!!.onOpened()
+                    listener?.onOpened()
                 } else {
                     // State Closed
-                    if (listener != null) listener!!.onClosed()
+                    listener?.onClosed()
                 }
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
