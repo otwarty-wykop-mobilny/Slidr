@@ -27,13 +27,11 @@ jobs:
           distribution: 'adopt'
           java-version: 11
 
-      - name: Cache .gradle
-        uses: burrunan/gradle-cache-action@v1
+      - name: Assemble
+        uses: gradle/gradle-build-action@v1
         with:
-          job-id: jdk11
-          gradle-distribution-sha-256-sum-warning: false
-
-      - run: ./gradlew assemble
+          arguments: assemble
+          dependencies-cache-enabled: true
 
       - name: Unwrap GPG key
         env:
@@ -42,8 +40,13 @@ jobs:
         run: sudo bash -c "echo '$GPG_KEY_CONTENTS' | base64 -d > '$SIGNING_SECRET_KEY_RING_FILE'"
 
       - name: Publish to Maven Central
-        run: ./gradlew publishReleasePublicationToMavenCentralRepository
+        uses: gradle/gradle-build-action@v1
+        with:
+          arguments: publishReleasePublicationToMavenCentralRepository
+          dependencies-cache-enabled: true
 
       - name: Publish to Github Package Registry
-        run: ./gradlew publishReleasePublicationToGithubRepository
-
+        uses: gradle/gradle-build-action@v1
+        with:
+          arguments: publishReleasePublicationToGithubRepository
+          dependencies-cache-enabled: true
