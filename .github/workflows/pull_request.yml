@@ -30,19 +30,19 @@ jobs:
         uses: gradle/wrapper-validation-action@v1
 
       - name: Code style check
-        uses: gradle/gradle-build-action@v1
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: projectCodestyle
           dependencies-cache-enabled: true
 
       - name: Assemble
-        uses: gradle/gradle-build-action@v1
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: assemble
           dependencies-cache-enabled: true
 
       - name: Unit tests
-        uses: gradle/gradle-build-action@v1
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: projectCoverage
           dependencies-cache-enabled: true
@@ -52,7 +52,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Android Lint
-        uses: gradle/gradle-build-action@v1
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: projectLint
           dependencies-cache-enabled: true
