@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.project.starter:android:0.38.0")
+    implementation("com.project.starter:android:0.39.0")
 }
 
 gradlePlugin {
