@@ -24,14 +24,13 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
-          java-version: 11
+          distribution: 'temurin'
+          java-version: 17
 
       - name: Assemble
         uses: gradle/gradle-build-action@v2
         with:
           arguments: assemble
-          dependencies-cache-enabled: true
 
       - name: Unwrap GPG key
         env:
@@ -43,10 +42,8 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: publishReleasePublicationToMavenCentralRepository
-          dependencies-cache-enabled: true
 
       - name: Publish to Github Package Registry
         uses: gradle/gradle-build-action@v2
         with:
           arguments: publishReleasePublicationToGithubRepository
-          dependencies-cache-enabled: true

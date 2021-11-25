@@ -23,8 +23,8 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
-          java-version: 11
+          distribution: 'temurin'
+          java-version: 17
 
       - name: Gradle Wrapper Validation
         uses: gradle/wrapper-validation-action@v1
@@ -33,19 +33,16 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: projectCodestyle
-          dependencies-cache-enabled: true
 
       - name: Assemble
         uses: gradle/gradle-build-action@v2
         with:
           arguments: assemble
-          dependencies-cache-enabled: true
 
       - name: Unit tests
         uses: gradle/gradle-build-action@v2
         with:
           arguments: projectCoverage
-          dependencies-cache-enabled: true
 
       - uses: codecov/codecov-action@v2
         with:
@@ -55,7 +52,6 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: projectLint
-          dependencies-cache-enabled: true
 
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}

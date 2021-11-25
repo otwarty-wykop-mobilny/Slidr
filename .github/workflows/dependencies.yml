@@ -23,14 +23,13 @@ jobs:
 
       - uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
-          java-version: 16
+          distribution: 'temurin'
+          java-version: 17
 
       - name: Assemble
         uses: gradle/gradle-build-action@v2
         with:
           arguments: assembleRelease -m
-          dependencies-cache-enabled: true
 
       - id: dependency-diff
         name: Generate dependency diff

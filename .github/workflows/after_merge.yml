@@ -25,14 +25,13 @@ jobs:
       - name: set up JDK
         uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
-          java-version: 11
+          distribution: 'temurin'
+          java-version: 17
 
       - name: Assemble
         uses: gradle/gradle-build-action@v2
         with:
           arguments: assembleRelease
-          dependencies-cache-enabled: true
 
       - name: Unwrap GPG key
         env:
@@ -54,7 +53,6 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: projectCoverage
-          dependencies-cache-enabled: true
 
       - uses: codecov/codecov-action@v2
         with:
