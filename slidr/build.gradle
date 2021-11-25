@@ -9,10 +9,14 @@ android {
     }
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.release.set(JavaVersion.VERSION_1_8.majorVersion.toInteger())
+}
+
 dependencies {
-    implementation("androidx.annotation:annotation:1.2.0")
+    implementation("androidx.annotation:annotation:1.3.0")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("androidx.cardview:cardview:1.0.0")
-    implementation("androidx.fragment:fragment:1.3.6")
+    implementation("androidx.fragment:fragment:1.4.0")
 }
 
