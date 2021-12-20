@@ -1,5 +1,8 @@
 {
   "includeForks": true,
+  "assignees": [
+    "mateuszkwiecinski"  
+  ],
   "extends": [
     "config:base"
   ]
