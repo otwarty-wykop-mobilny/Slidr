@@ -7,6 +7,14 @@ android {
     defaultConfig {
         minSdk 23
     }
+    publishing {
+        singleVariant("release")
+    }
+}
+androidComponents {
+    beforeVariants(selector().withBuildType("release")) { builder ->
+        builder.enable = true
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
