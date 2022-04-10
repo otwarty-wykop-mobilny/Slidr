@@ -526,7 +526,8 @@ internal class SliderPanel(
          * This is so we can get the height of the view and
          * ignore the system navigation that would be included if we
          * retrieved this value from the DisplayMetrics
-         */post {
+         */
+        post {
             screenHeight = height
             screenWidth = width
         }
