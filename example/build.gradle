@@ -16,7 +16,7 @@ android {
 
 dependencies {
     implementation(project(':slidr'))
-    implementation("com.google.android.material:material:1.6.0")
+    implementation("com.google.android.material:material:1.6.1")
     implementation("com.github.bumptech.glide:glide:4.13.2")
     kapt("com.github.bumptech.glide:compiler:4.13.2")
     implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
