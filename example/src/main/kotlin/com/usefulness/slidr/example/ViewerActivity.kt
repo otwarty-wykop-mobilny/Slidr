@@ -1,6 +1,8 @@
 package com.usefulness.slidr.example
 
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -13,6 +15,7 @@ import com.r0adkll.slidr.model.SlidrConfig
 import com.r0adkll.slidr.model.SlidrPosition
 import com.usefulness.slidr.example.databinding.ActivityViewerBinding
 import com.usefulness.slidr.example.model.AndroidOs
+import java.io.Serializable
 import kotlin.random.Random
 
 class ViewerActivity : AppCompatActivity() {
@@ -44,7 +47,7 @@ class ViewerActivity : AppCompatActivity() {
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val os = intent.getSerializableExtra(EXTRA_OS) as AndroidOs
+        val os = intent.getSerializableExtraCompat<AndroidOs>(EXTRA_OS)
         // Set layout contents
         binding.title.text = os.name
         binding.description.text = os.description
@@ -84,3 +87,11 @@ class ViewerActivity : AppCompatActivity() {
         const val EXTRA_OS = "extra_os_version"
     }
 }
+
+inline fun <reified T : Serializable?> Intent.getSerializableExtraCompat(name: String) =
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        getSerializableExtra(name, T::class.java)!!
+    } else {
+        @Suppress("DEPRECATION")
+        getSerializableExtra(name) as T
+    }

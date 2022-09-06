@@ -1,4 +1,6 @@
 rootProject.name = "com.github.usefulness"
 
 include ':slidr',
-    ':example'
+    ':slidr-compose',
+    ':example',
+    ':example-compose'

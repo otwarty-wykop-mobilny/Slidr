@@ -1,0 +1,30 @@
+plugins {
+    id("com.starter.library.android")
+    id("com.starter.publishing")
+}
+
+android {
+    defaultConfig {
+        minSdk 23
+    }
+    publishing {
+        singleVariant("release")
+    }
+}
+androidComponents {
+    beforeVariants(selector().withBuildType("release")) { builder ->
+        builder.enable = true
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release.set(JavaVersion.VERSION_1_8.majorVersion.toInteger())
+}
+
+dependencies {
+    implementation("androidx.annotation:annotation:1.4.0")
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.fragment:fragment:1.5.2")
+}
+
