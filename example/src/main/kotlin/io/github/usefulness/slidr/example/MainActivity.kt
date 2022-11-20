@@ -1,4 +1,4 @@
-package com.usefulness.slidr.example
+package io.github.usefulness.slidr.example
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
-import com.usefulness.slidr.example.databinding.ActivityMainBinding
-import com.usefulness.slidr.example.model.AndroidOs
+import io.github.usefulness.slidr.example.databinding.ActivityMainBinding
+import io.github.usefulness.slidr.example.model.AndroidOs
 import okio.buffer
 import okio.source
 

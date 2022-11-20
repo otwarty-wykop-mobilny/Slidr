@@ -1,12 +1,12 @@
-package com.usefulness.slidr.example
+package io.github.usefulness.slidr.example
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.usefulness.slidr.example.databinding.LayoutItemBinding
-import com.usefulness.slidr.example.model.AndroidOs
+import io.github.usefulness.slidr.example.databinding.LayoutItemBinding
+import io.github.usefulness.slidr.example.model.AndroidOs
 
 internal class OSVersionAdapter(
     private val onClick: (AndroidOs) -> Unit,

@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapperKt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.starter.config")
+    alias(libs.plugins.starter.config)
+    alias(libs.plugins.starter.versioning)
+    alias(libs.plugins.starter.library.android) apply false
 }
 
 commonConfig {
@@ -10,6 +13,25 @@ commonConfig {
 }
 
 allprojects {
+    pluginManager.withPlugin("kotlin") { plugin ->
+        def kotlinVersion = KotlinPluginWrapperKt.getKotlinPluginVersion(project)
+        configurations.configureEach {
+            resolutionStrategy.eachDependency {
+                if (requested.group == 'org.jetbrains.kotlin' && requested.name.startsWith("kotlin")) {
+                    useVersion kotlinVersion
+                }
+            }
+        }
+    }
+
+    pluginManager.withPlugin("java") {
+        java {
+            toolchain {
+                languageVersion = JavaLanguageVersion.of(JavaVersion.VERSION_17.toString())
+            }
+        }
+    }
+
     tasks.withType(KotlinCompile).configureEach {
         kotlinOptions {
             apiVersion = "1.5"

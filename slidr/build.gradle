@@ -1,9 +1,10 @@
 plugins {
-    id("com.starter.library.android")
+    alias(libs.plugins.starter.library.android)
     id("com.starter.publishing")
 }
 
 android {
+    namespace "io.github.usefulness.slidr.android"
     defaultConfig {
         minSdk 23
     }
@@ -22,9 +23,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 dependencies {
-    implementation("androidx.annotation:annotation:1.5.0")
-    implementation("androidx.recyclerview:recyclerview:1.2.1")
-    implementation("androidx.cardview:cardview:1.0.0")
-    implementation("androidx.fragment:fragment:1.5.4")
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.fragment.core)
 }
 

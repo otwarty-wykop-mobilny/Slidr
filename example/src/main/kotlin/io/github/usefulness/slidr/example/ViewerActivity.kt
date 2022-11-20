@@ -1,4 +1,4 @@
-package com.usefulness.slidr.example
+package io.github.usefulness.slidr.example
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,8 +11,8 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withC
 import com.r0adkll.slidr.attachSlidr
 import com.r0adkll.slidr.model.SlidrConfig
 import com.r0adkll.slidr.model.SlidrPosition
-import com.usefulness.slidr.example.databinding.ActivityViewerBinding
-import com.usefulness.slidr.example.model.AndroidOs
+import io.github.usefulness.slidr.example.databinding.ActivityViewerBinding
+import io.github.usefulness.slidr.example.model.AndroidOs
 import kotlin.random.Random
 
 class ViewerActivity : AppCompatActivity() {
