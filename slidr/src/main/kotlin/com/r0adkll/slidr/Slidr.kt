@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import com.r0adkll.slidr.model.SlidrConfig
 import com.r0adkll.slidr.model.SlidrInterface
 import com.r0adkll.slidr.widget.SliderPanel
+import io.github.usefulness.slidr.android.R
 
 /**
  * Attach a slider mechanism to a fragment view replacing an internal view

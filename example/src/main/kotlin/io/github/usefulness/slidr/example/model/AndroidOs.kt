@@ -1,4 +1,4 @@
-package com.usefulness.slidr.example.model
+package io.github.usefulness.slidr.example.model
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
