@@ -6,7 +6,7 @@ maven-kotlin = "1.7.22"
 google-androidx-annotation = "1.5.0"
 google-material = "1.7.0"
 google-recyclerview = "1.2.1"
-google-fragment = "1.5.4"
+google-fragment = "1.5.5"
 maven-glide = "4.14.2"
 maven-moshi = "1.14.0"
 
