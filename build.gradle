@@ -4,7 +4,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     alias(libs.plugins.starter.config)
     alias(libs.plugins.starter.versioning)
+    alias(libs.plugins.osacky.doctor)
     alias(libs.plugins.starter.library.android) apply false
+    alias(libs.plugins.starter.application.android) apply false
 }
 
 commonConfig {
@@ -22,13 +24,9 @@ allprojects {
                 }
             }
         }
-    }
 
-    pluginManager.withPlugin("java") {
-        java {
-            toolchain {
-                languageVersion = JavaLanguageVersion.of(JavaVersion.VERSION_17.toString())
-            }
+        kotlin {
+            jvmToolchain(17)
         }
     }
 

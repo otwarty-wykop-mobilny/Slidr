@@ -1,6 +1,6 @@
 plugins {
-    id("com.starter.application.android")
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.starter.application.android)
+    alias(libs.plugins.google.ksp)
 }
 
 android {
@@ -18,8 +18,8 @@ android {
 dependencies {
     implementation(project(':slidr'))
     implementation(libs.material.core)
-    implementation("com.github.bumptech.glide:glide:4.14.2")
-    kapt("com.github.bumptech.glide:compiler:4.14.2")
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+    implementation(libs.glide.core)
+    ksp(libs.glide.compiler)
+    implementation(libs.moshi.core)
+    ksp(libs.moshi.codegen)
 }

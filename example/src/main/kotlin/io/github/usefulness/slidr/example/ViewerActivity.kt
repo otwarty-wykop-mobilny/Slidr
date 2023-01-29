@@ -1,6 +1,7 @@
 package io.github.usefulness.slidr.example
 
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -44,7 +45,12 @@ class ViewerActivity : AppCompatActivity() {
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val os = intent.getSerializableExtra(EXTRA_OS) as AndroidOs
+        val os = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra(EXTRA_OS, AndroidOs::class.java).let(::checkNotNull)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getSerializableExtra(EXTRA_OS) as AndroidOs
+        }
         // Set layout contents
         binding.title.text = os.name
         binding.description.text = os.description
