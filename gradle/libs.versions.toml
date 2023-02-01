@@ -1,7 +1,7 @@
 [versions]
 gradle-starter = "0.56.1"
 gradle-doctor = "0.8.1"
-google-agp = "7.4.0"
+google-agp = "7.4.1"
 google-ksp = "1.8.0-1.0.9"
 maven-kotlin = "1.8.0"
 google-androidx-annotation = "1.5.0"
