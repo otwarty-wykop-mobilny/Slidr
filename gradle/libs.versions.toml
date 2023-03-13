@@ -8,7 +8,7 @@ google-androidx-annotation = "1.6.0"
 google-material = "1.8.0"
 google-recyclerview = "1.3.0"
 google-fragment = "1.5.5"
-maven-glide = "4.15.0"
+maven-glide = "4.15.1"
 maven-moshi = "1.14.0"
 
 [libraries]
