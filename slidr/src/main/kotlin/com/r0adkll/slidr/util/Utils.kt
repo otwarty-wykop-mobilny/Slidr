@@ -25,18 +25,16 @@ internal fun Context.getNavigationBarSize(): Int {
     }
 }
 
-private fun getAppUsableScreenSize(windowManager: WindowManager) =
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        windowManager.currentWindowMetrics.bounds.run { width() to height() }
-    } else {
-        @Suppress("DEPRECATION")
-        Point().apply(windowManager.defaultDisplay::getSize).run { x to y }
-    }
+private fun getAppUsableScreenSize(windowManager: WindowManager) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    windowManager.currentWindowMetrics.bounds.run { width() to height() }
+} else {
+    @Suppress("DEPRECATION")
+    Point().apply(windowManager.defaultDisplay::getSize).run { x to y }
+}
 
-private fun getRealScreenSize(windowManager: WindowManager) =
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-        windowManager.currentWindowMetrics.bounds.run { width() to height() }
-    } else {
-        @Suppress("DEPRECATION")
-        Point().apply(windowManager.defaultDisplay::getRealSize).run { x to y }
-    }
+private fun getRealScreenSize(windowManager: WindowManager) = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+    windowManager.currentWindowMetrics.bounds.run { width() to height() }
+} else {
+    @Suppress("DEPRECATION")
+    Point().apply(windowManager.defaultDisplay::getRealSize).run { x to y }
+}

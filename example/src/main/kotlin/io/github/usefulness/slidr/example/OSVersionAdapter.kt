@@ -26,9 +26,7 @@ internal class OSVersionAdapter(
 }
 
 internal object AndroidOsDiff : DiffUtil.ItemCallback<AndroidOs>() {
-    override fun areItemsTheSame(oldItem: AndroidOs, newItem: AndroidOs) =
-        oldItem.name == newItem.name
+    override fun areItemsTheSame(oldItem: AndroidOs, newItem: AndroidOs) = oldItem.name == newItem.name
 
-    override fun areContentsTheSame(oldItem: AndroidOs, newItem: AndroidOs) =
-        oldItem == newItem
+    override fun areContentsTheSame(oldItem: AndroidOs, newItem: AndroidOs) = oldItem == newItem
 }

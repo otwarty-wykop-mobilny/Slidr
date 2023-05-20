@@ -72,13 +72,7 @@ internal class SliderPanel(
             invalidate()
         }
 
-        override fun onViewPositionChanged(
-            changedView: View,
-            left: Int,
-            top: Int,
-            dx: Int,
-            dy: Int,
-        ) {
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - left.toFloat() / screenWidth.toFloat()
             listener?.onSlideChange(percent)
@@ -144,13 +138,7 @@ internal class SliderPanel(
             invalidate()
         }
 
-        override fun onViewPositionChanged(
-            changedView: View,
-            left: Int,
-            top: Int,
-            dx: Int,
-            dy: Int,
-        ) {
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(left)
                 .toFloat() / screenWidth.toFloat()
@@ -216,13 +204,7 @@ internal class SliderPanel(
             invalidate()
         }
 
-        override fun onViewPositionChanged(
-            changedView: View,
-            left: Int,
-            top: Int,
-            dx: Int,
-            dy: Int,
-        ) {
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(top)
                 .toFloat() / screenHeight.toFloat()
@@ -288,13 +270,7 @@ internal class SliderPanel(
             invalidate()
         }
 
-        override fun onViewPositionChanged(
-            changedView: View,
-            left: Int,
-            top: Int,
-            dx: Int,
-            dy: Int,
-        ) {
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(top)
                 .toFloat() / screenHeight.toFloat()
@@ -370,13 +346,7 @@ internal class SliderPanel(
             invalidate()
         }
 
-        override fun onViewPositionChanged(
-            changedView: View,
-            left: Int,
-            top: Int,
-            dx: Int,
-            dy: Int,
-        ) {
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(top)
                 .toFloat() / screenHeight.toFloat()
@@ -451,13 +421,7 @@ internal class SliderPanel(
             invalidate()
         }
 
-        override fun onViewPositionChanged(
-            changedView: View,
-            left: Int,
-            top: Int,
-            dx: Int,
-            dy: Int,
-        ) {
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
             val percent = 1f - Math.abs(left)
                 .toFloat() / screenWidth.toFloat()

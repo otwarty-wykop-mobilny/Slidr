@@ -24,34 +24,27 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 17
+          java-version: 20
 
-      - name: Gradle Wrapper Validation
-        uses: gradle/wrapper-validation-action@v1
+      - uses: gradle/wrapper-validation-action@v1
 
-      - name: Code style check
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: projectCodestyle
+      - uses: gradle/gradle-build-action@v2
 
-      - name: Assemble
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: assemble
+      - run: ./gradlew currentVersion
 
-      - name: Unit tests
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: projectCoverage
+      - run: ./gradlew projectCodestyle
+
+      - run: ./gradlew assemble
+
+      - run: ./gradlew projectCoverage
 
       - uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Android Lint
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: projectLint
+      - run: ./gradlew projectLint
+
+      - run: ./gradlew publishToMavenLocal
 
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
