@@ -1,7 +1,7 @@
 name: Generate dependency diff
 
 on:
-  pull_request:
+  push:
     branches:
       - master
       - main
@@ -9,6 +9,7 @@ on:
       - develop
       - maine
       - mane
+  pull_request:
 
 jobs:
   generate-diff:
@@ -31,7 +32,7 @@ jobs:
       - run: ./gradlew assembleRelease -m
 
       - id: dependency-diff
-        name: Generate dependency diff
+        if: github.event_name == 'pull_request'
         uses: usefulness/dependency-tree-diff-action@v1
         with:
           project: 'slidr'
@@ -39,6 +40,7 @@ jobs:
 
       - uses: peter-evans/find-comment@v2
         id: find_comment
+        if: github.event_name == 'pull_request'
         with:
           issue-number: ${{ github.event.pull_request.number }}
           body-includes: Dependency diff
