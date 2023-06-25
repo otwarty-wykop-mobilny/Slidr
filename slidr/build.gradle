@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.starter.library.android)
+    alias(libs.plugins.kotlinx.binarycompatibility)
     id("com.starter.publishing")
 }
 
@@ -16,10 +17,6 @@ androidComponents {
     beforeVariants(selector().withBuildType("release")) { builder ->
         builder.enable = true
     }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.release.set(JavaVersion.VERSION_1_8.majorVersion.toInteger())
 }
 
 dependencies {
