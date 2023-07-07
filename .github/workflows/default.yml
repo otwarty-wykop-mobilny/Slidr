@@ -13,6 +13,10 @@ on:
   schedule:
     - cron: '0 3 * * 1,4'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
