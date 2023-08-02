@@ -2,7 +2,7 @@
 gradle-starter = "0.62.0"
 gradle-doctor = "0.8.1"
 google-agp = "8.1.0"
-google-ksp = "1.9.0-1.0.12"
+google-ksp = "1.9.0-1.0.13"
 google-androidx-annotation = "1.6.0"
 google-material = "1.9.0"
 google-fragment = "1.6.1"
