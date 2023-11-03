@@ -5,10 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import com.r0adkll.slidr.model.SlidrConfig
 import com.r0adkll.slidr.widget.SliderPanel.OnPanelSlideListener
 
-internal class FragmentPanelSlideListener(
-    private val view: View,
-    private val config: SlidrConfig,
-) : OnPanelSlideListener {
+internal class FragmentPanelSlideListener(private val view: View, private val config: SlidrConfig) : OnPanelSlideListener {
 
     override fun onStateChanged(state: Int) {
         config.listener.onSlideStateChanged(state)

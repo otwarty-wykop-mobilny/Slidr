@@ -8,9 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import io.github.usefulness.slidr.example.databinding.LayoutItemBinding
 import io.github.usefulness.slidr.example.model.AndroidOs
 
-internal class OSVersionAdapter(
-    private val onClick: (AndroidOs) -> Unit,
-) : ListAdapter<AndroidOs, OSVersionAdapter.BindingViewHolder>(AndroidOsDiff) {
+internal class OSVersionAdapter(private val onClick: (AndroidOs) -> Unit) :
+    ListAdapter<AndroidOs, OSVersionAdapter.BindingViewHolder>(AndroidOsDiff) {
 
     data class BindingViewHolder(val binding: LayoutItemBinding) : RecyclerView.ViewHolder(binding.root)
 
