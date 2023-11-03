@@ -5,10 +5,8 @@ import android.app.Activity
 import com.r0adkll.slidr.model.SlidrConfig
 import com.r0adkll.slidr.widget.SliderPanel
 
-internal class ConfigPanelSlideListener(
-    private val activity: Activity,
-    private val config: SlidrConfig,
-) : SliderPanel.OnPanelSlideListener {
+internal class ConfigPanelSlideListener(private val activity: Activity, private val config: SlidrConfig) :
+    SliderPanel.OnPanelSlideListener {
 
     private val evaluator = ArgbEvaluator()
 

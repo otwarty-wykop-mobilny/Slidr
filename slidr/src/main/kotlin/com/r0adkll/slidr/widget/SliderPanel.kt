@@ -15,11 +15,7 @@ import com.r0adkll.slidr.model.SlidrPosition
 import com.r0adkll.slidr.util.getNavigationBarSize
 import kotlin.math.abs
 
-internal class SliderPanel(
-    context: Context,
-    private val decorView: View,
-    private val config: SlidrConfig,
-) : FrameLayout(context) {
+internal class SliderPanel(context: Context, private val decorView: View, private val config: SlidrConfig) : FrameLayout(context) {
     private var screenWidth = 0
     private var screenHeight = 0
     private lateinit var dragHelper: ViewDragHelper
@@ -604,12 +600,8 @@ internal class SliderPanel(
 
     companion object {
         private const val MIN_FLING_VELOCITY = 400 // dips per second
-        private fun clamp(value: Int, min: Int, max: Int): Int {
-            return min.coerceAtLeast(max.coerceAtMost(value))
-        }
+        private fun clamp(value: Int, min: Int, max: Int): Int = min.coerceAtLeast(max.coerceAtMost(value))
 
-        private fun toAlpha(percentage: Float): Int {
-            return (percentage * 255).toInt()
-        }
+        private fun toAlpha(percentage: Float): Int = (percentage * 255).toInt()
     }
 }

@@ -6,10 +6,7 @@ import android.graphics.Rect
 import android.view.View
 import com.r0adkll.slidr.model.SlidrPosition
 
-internal class ScrimRenderer(
-    private val rootView: View,
-    private val decorView: View,
-) {
+internal class ScrimRenderer(private val rootView: View, private val decorView: View) {
 
     private val dirtyRect = Rect()
 
