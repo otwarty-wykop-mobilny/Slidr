@@ -39,13 +39,9 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
             return child.id == decorView.id && edgeCase
         }
 
-        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
-            return clamp(left, 0, screenWidth)
-        }
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int = clamp(left, 0, screenWidth)
 
-        override fun getViewHorizontalDragRange(child: View): Int {
-            return screenWidth
-        }
+        override fun getViewHorizontalDragRange(child: View): Int = screenWidth
 
         override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
             super.onViewReleased(releasedChild, xvel, yvel)
@@ -105,13 +101,9 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
             return child.id == decorView.id && edgeCase
         }
 
-        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
-            return clamp(left, -screenWidth, 0)
-        }
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int = clamp(left, -screenWidth, 0)
 
-        override fun getViewHorizontalDragRange(child: View): Int {
-            return screenWidth
-        }
+        override fun getViewHorizontalDragRange(child: View): Int = screenWidth
 
         override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
             super.onViewReleased(releasedChild, xvel, yvel)
@@ -167,17 +159,11 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
      * The drag helper callbacks for dragging the slidr attachment from the top of the screen
      */
     private val topCallback: ViewDragHelper.Callback = object : ViewDragHelper.Callback() {
-        override fun tryCaptureView(child: View, pointerId: Int): Boolean {
-            return child.id == decorView.id && (!config.edgeOnly || isEdgeTouched)
-        }
+        override fun tryCaptureView(child: View, pointerId: Int): Boolean = child.id == decorView.id && (!config.edgeOnly || isEdgeTouched)
 
-        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
-            return clamp(top, 0, screenHeight)
-        }
+        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int = clamp(top, 0, screenHeight)
 
-        override fun getViewVerticalDragRange(child: View): Int {
-            return screenHeight
-        }
+        override fun getViewVerticalDragRange(child: View): Int = screenHeight
 
         override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
             super.onViewReleased(releasedChild, xvel, yvel)
@@ -233,17 +219,11 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
      * The drag helper callbacks for dragging the slidr attachment from the bottom of hte screen
      */
     private val bottomCallback: ViewDragHelper.Callback = object : ViewDragHelper.Callback() {
-        override fun tryCaptureView(child: View, pointerId: Int): Boolean {
-            return child.id == decorView.id && (!config.edgeOnly || isEdgeTouched)
-        }
+        override fun tryCaptureView(child: View, pointerId: Int): Boolean = child.id == decorView.id && (!config.edgeOnly || isEdgeTouched)
 
-        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
-            return clamp(top, -screenHeight, 0)
-        }
+        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int = clamp(top, -screenHeight, 0)
 
-        override fun getViewVerticalDragRange(child: View): Int {
-            return screenHeight
-        }
+        override fun getViewVerticalDragRange(child: View): Int = screenHeight
 
         override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
             super.onViewReleased(releasedChild, xvel, yvel)
@@ -299,17 +279,11 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
      * The drag helper callbacks for dragging the slidr attachment in both vertical directions
      */
     private val verticalCallback: ViewDragHelper.Callback = object : ViewDragHelper.Callback() {
-        override fun tryCaptureView(child: View, pointerId: Int): Boolean {
-            return child.id == decorView.id && (!config.edgeOnly || isEdgeTouched)
-        }
+        override fun tryCaptureView(child: View, pointerId: Int): Boolean = child.id == decorView.id && (!config.edgeOnly || isEdgeTouched)
 
-        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
-            return clamp(top, -screenHeight, screenHeight)
-        }
+        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int = clamp(top, -screenHeight, screenHeight)
 
-        override fun getViewVerticalDragRange(child: View): Int {
-            return screenHeight
-        }
+        override fun getViewVerticalDragRange(child: View): Int = screenHeight
 
         override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
             super.onViewReleased(releasedChild, xvel, yvel)
@@ -380,13 +354,9 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
             return child.id == decorView.id && edgeCase
         }
 
-        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
-            return clamp(left, -screenWidth, screenWidth)
-        }
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int = clamp(left, -screenWidth, screenWidth)
 
-        override fun getViewHorizontalDragRange(child: View): Int {
-            return screenWidth
-        }
+        override fun getViewHorizontalDragRange(child: View): Int = screenWidth
 
         override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
             super.onViewReleased(releasedChild, xvel, yvel)
