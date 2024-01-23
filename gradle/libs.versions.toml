@@ -1,7 +1,7 @@
 [versions]
 gradle-starter = "0.69.0"
 gradle-doctor = "0.9.1"
-google-agp = "8.2.1"
+google-agp = "8.2.2"
 google-ksp = "1.9.22-1.0.17"
 google-androidx-annotation = "1.7.1"
 google-material = "1.11.0"
