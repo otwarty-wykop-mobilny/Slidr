@@ -84,8 +84,10 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
                     // State Closed
                     listener?.onClosed()
                 }
+
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
+
                 ViewDragHelper.STATE_SETTLING -> {
                 }
             }
@@ -147,8 +149,10 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
                     // State Closed
                     listener?.onClosed()
                 }
+
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
+
                 ViewDragHelper.STATE_SETTLING -> {
                 }
             }
@@ -207,8 +211,10 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
                     // State Closed
                     listener?.onClosed()
                 }
+
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
+
                 ViewDragHelper.STATE_SETTLING -> {
                 }
             }
@@ -267,8 +273,10 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
                     // State Closed
                     listener?.onClosed()
                 }
+
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
+
                 ViewDragHelper.STATE_SETTLING -> {
                 }
             }
@@ -337,8 +345,10 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
                     // State Closed
                     listener?.onClosed()
                 }
+
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
+
                 ViewDragHelper.STATE_SETTLING -> {
                 }
             }
@@ -408,8 +418,10 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
                     // State Closed
                     listener?.onClosed()
                 }
+
                 ViewDragHelper.STATE_DRAGGING -> {
                 }
+
                 ViewDragHelper.STATE_SETTLING -> {
                 }
             }
@@ -426,22 +438,27 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
                 callback = leftCallback
                 edgePosition = ViewDragHelper.EDGE_LEFT
             }
+
             SlidrPosition.Right -> {
                 callback = rightCallback
                 edgePosition = ViewDragHelper.EDGE_RIGHT
             }
+
             SlidrPosition.Top -> {
                 callback = topCallback
                 edgePosition = ViewDragHelper.EDGE_TOP
             }
+
             SlidrPosition.Bottom -> {
                 callback = bottomCallback
                 edgePosition = ViewDragHelper.EDGE_BOTTOM
             }
+
             SlidrPosition.Vertical -> {
                 callback = verticalCallback
                 edgePosition = ViewDragHelper.EDGE_TOP or ViewDragHelper.EDGE_BOTTOM
             }
+
             SlidrPosition.Horizontal -> {
                 callback = horizontalCallback
                 edgePosition = ViewDragHelper.EDGE_LEFT or ViewDragHelper.EDGE_RIGHT
@@ -541,11 +558,16 @@ internal class SliderPanel(context: Context, private val decorView: View, privat
         val yPoint = ev.y
         return when (config.position) {
             SlidrPosition.Left -> xPoint < config.getEdgeSize(width.toFloat())
+
             SlidrPosition.Right -> xPoint > width - config.getEdgeSize(width.toFloat())
+
             SlidrPosition.Bottom -> yPoint > height - config.getEdgeSize(height.toFloat())
+
             SlidrPosition.Top -> yPoint < config.getEdgeSize(height.toFloat())
+
             SlidrPosition.Horizontal ->
                 xPoint < config.getEdgeSize(width.toFloat()) || xPoint > width - config.getEdgeSize(width.toFloat())
+
             SlidrPosition.Vertical ->
                 yPoint < config.getEdgeSize(height.toFloat()) || yPoint > height - config.getEdgeSize(height.toFloat())
         }
