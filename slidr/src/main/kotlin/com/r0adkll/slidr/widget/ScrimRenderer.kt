@@ -24,16 +24,21 @@ internal class ScrimRenderer(private val rootView: View, private val decorView: 
     fun getDirtyRect(position: SlidrPosition?): Rect {
         when (position) {
             SlidrPosition.Left -> dirtyRect[0, 0, decorView.left] = rootView.measuredHeight
+
             SlidrPosition.Right -> dirtyRect[decorView.right, 0, rootView.measuredWidth] =
                 rootView.measuredHeight
+
             SlidrPosition.Top -> dirtyRect[0, 0, rootView.measuredWidth] = decorView.top
+
             SlidrPosition.Bottom -> dirtyRect[0, decorView.bottom, rootView.measuredWidth] =
                 rootView.measuredHeight
+
             SlidrPosition.Vertical -> if (decorView.top > 0) {
                 dirtyRect[0, 0, rootView.measuredWidth] = decorView.top
             } else {
                 dirtyRect[0, decorView.bottom, rootView.measuredWidth] = rootView.measuredHeight
             }
+
             SlidrPosition.Horizontal -> if (decorView.left > 0) {
                 dirtyRect[0, 0, decorView.left] = rootView.measuredHeight
             } else {
